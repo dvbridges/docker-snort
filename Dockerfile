@@ -41,13 +41,12 @@ RUN wget https://www.snort.org/downloads/archive/snort/snort-${SNORT_VERSION}.ta
 RUN ldconfig
 
 RUN wget --no-check-certificate \
-	# https://github.com/codecat007/snort-rules/archive/master.zip \
+    https://github.com/dvbridges/docker-snort/archive/master.zip \
     && unzip master.zip
 
 ENV SNORT_RULES_SNAPSHOT 2983 
-ENV RULE_PATH snort-rules-master/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}
+ENV RULE_PATH docker-snort-master/snortrules-snapshot-${SNORT_RULES_SNAPSHOT}
 
-RUN ls -la; pwd -P
 # ADD mysnortrules /opt
 RUN mkdir -p /var/log/snort && \
     mkdir -p /usr/local/lib/snort_dynamicrules && \
@@ -64,8 +63,8 @@ RUN mkdir -p /var/log/snort && \
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    /opt/daq-${DAQ_VERSION}.tar.gz snort-rules-master \
-    /opt/master.zip /opt/snort-${SNORT_VERSION}.tar.gz 
+    /opt/daq-${DAQ_VERSION}.tar.gz \ 
+    /opt/master.zip /opt/docker-snort-master  
 
 
 ENV NETWORK_INTERFACE eth0
