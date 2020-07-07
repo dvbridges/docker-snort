@@ -14,7 +14,7 @@ You may need to run as `sudo`
 Attach the snort in container to have full access to the network
 
 ```
-$ docker run -it --rm --net=host dvbridges/docker-snort:1.0 /bin/bash
+$ docker run -it --rm --net=host dvbridges/docker-snort /bin/bash
 ```
 
 # Snort Usage
