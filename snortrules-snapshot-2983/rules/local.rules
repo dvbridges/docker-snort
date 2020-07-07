@@ -19,4 +19,4 @@
 # LOCAL RULES
 #-------------
 
-alert icmp any any 8.8.8.8 any (msg:"Ping alert to 8.8.8.8";sid:1000004;) 
+alert icmp any any -> 8.8.8.8 any (msg:"Ping alert to 8.8.8.8";sid:1000004;) 

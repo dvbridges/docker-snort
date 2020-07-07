@@ -63,7 +63,7 @@ RUN mkdir -p /var/log/snort && \
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    /opt/daq-${DAQ_VERSION}.tar.gz \ 
+    /opt/daq-${DAQ_VERSION}.tar.gz \  /opt/snort-${SNORT_VERSION}.tar.gz \
     /opt/master.zip /opt/docker-snort-master  
 
 
